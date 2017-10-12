@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 
-group = 'com.rafaelguimas.jokesapp.backend'
+group = 'com.example.rafae.myapplication.backend'
 archivesBaseName = 'myApi'
 version = 'v1-1.23.0-SNAPSHOT'
 

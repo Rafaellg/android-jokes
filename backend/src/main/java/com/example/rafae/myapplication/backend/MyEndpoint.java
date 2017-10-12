@@ -4,11 +4,12 @@
    https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/master/HelloEndpoints
 */
 
-package com.rafaelguimas.jokesapp.backend;
+package com.example.rafae.myapplication.backend;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.rafaelguimas.JokesLib;
 
 import javax.inject.Named;
 
@@ -19,8 +20,8 @@ import javax.inject.Named;
         name = "myApi",
         version = "v1",
         namespace = @ApiNamespace(
-                ownerDomain = "backend.jokesapp.rafaelguimas.com",
-                ownerName = "backend.jokesapp.rafaelguimas.com",
+                ownerDomain = "backend.myapplication.rafae.example.com",
+                ownerName = "backend.myapplication.rafae.example.com",
                 packagePath = ""
         )
 )
@@ -34,6 +35,13 @@ public class MyEndpoint {
         MyBean response = new MyBean();
         response.setData("Hi, " + name);
 
+        return response;
+    }
+
+    @ApiMethod(name = "getJoke")
+    public MyBean getJoke() {
+        MyBean response = new MyBean();
+        response.setData(JokesLib.getJoke());
         return response;
     }
 

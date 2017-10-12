@@ -22,12 +22,12 @@ sourceCompatibility = JavaVersion.VERSION_1_7
 targetCompatibility = JavaVersion.VERSION_1_7
 
 dependencies {
-    appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.42'
-    compile 'com.google.appengine:appengine-endpoints:1.9.42'
-    compile 'com.google.appengine:appengine-endpoints-deps:1.9.42'
+    appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.58'
+    compile 'com.google.appengine:appengine-endpoints:1.9.58'
+    compile 'com.google.appengine:appengine-endpoints-deps:1.9.58'
     compile 'javax.servlet:servlet-api:2.5'
-    compile 'com.google.api-client:google-api-client:1.22.0'
-    compile 'com.google.api-client:google-api-client-android:1.22.0'
+    compile 'com.google.api-client:google-api-client-android:1.23.0'
+    compile project(':java-jokes-lib')
 }
 
 appengine {
@@ -38,5 +38,6 @@ appengine {
     endpoints {
         getClientLibsOnBuild = true
         getDiscoveryDocsOnBuild = true
+        googleClientVersion = '1.23.0'
     }
 }
