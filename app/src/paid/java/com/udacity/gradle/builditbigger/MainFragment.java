@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-
 /**
  * A placeholder fragment containing a simple view.
  */

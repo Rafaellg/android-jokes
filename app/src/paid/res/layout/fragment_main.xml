@@ -20,11 +20,11 @@
             android:layout_width="104dp"
             android:layout_height="104dp"
             android:src="@drawable/ic_laughing"
+            ads:layout_constraintBottom_toBottomOf="parent"
             ads:layout_constraintLeft_toLeftOf="parent"
             ads:layout_constraintRight_toRightOf="parent"
             ads:layout_constraintTop_toTopOf="parent"
-            ads:layout_constraintVertical_bias="0.385"
-            ads:layout_constraintBottom_toBottomOf="parent" />
+            ads:layout_constraintVertical_bias="0.385" />
 
         <Button
             android:id="@+id/bt_tell_joke"

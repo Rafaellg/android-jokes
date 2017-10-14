@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -27,7 +28,7 @@ public class JokesAsyncTask extends AsyncTask<Void, Void, String> {
     private Context mContext;
     private ProgressBar mProgressBar;
 
-    public JokesAsyncTask(Context context, ProgressBar mProgressBar) {
+    public JokesAsyncTask(@Nullable Context context, @Nullable ProgressBar mProgressBar) {
         this.mContext = context;
         this.mProgressBar = mProgressBar;
     }
@@ -36,7 +37,9 @@ public class JokesAsyncTask extends AsyncTask<Void, Void, String> {
     protected void onPreExecute() {
         super.onPreExecute();
 
-        mProgressBar.setVisibility(View.VISIBLE);
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -67,13 +70,15 @@ public class JokesAsyncTask extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String result) {
         Log.i(JokesAsyncTask.class.getSimpleName(), "Joke received: " + result);
 
-        mProgressBar.setVisibility(View.GONE);
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.GONE);
+        }
 
         if (result != null) {
             Intent intent = new Intent(mContext, JokeActivity.class);
             intent.putExtra(JokeActivity.EXTRA_JOKE, result);
             mContext.startActivity(intent);
-        } else {
+        } else if (mContext != null) {
             Toast.makeText(mContext, R.string.error_server_offline, Toast.LENGTH_LONG).show();
         }
     }
